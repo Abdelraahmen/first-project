@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Authors{% endblock %}
+
+{% block body %}
+    <h1>Liste des Authors</h1>
+
+    {% if list is not empty %}
+        <table border="1" cellspacing="0" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for author in list %}
+                    <tr>
+                        <td>{{ author.username }}</td>
+                        <td>{{ author.email }}</td>
+                        <td>UPADATE ,DELETE ,details</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No authors found.</p>
+    {% endif %}
+{% endblock %}
